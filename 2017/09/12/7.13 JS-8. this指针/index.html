@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="###7.13 JS-8. this指针  this就是js中的当前行为主体 全局中的this是window  函数中的this要看函数执行的时候前面有没有“.”,如果有点 点前面是谁this就是谁。如果没有点 this就是windowPS:如果访问对象的属性 但是这个属性不存在返回undefined获取一个不存在的元素返回的是null定义在哪里没有关系  主要看执行的时候 12345678910">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://sin32.github.io/2017/09/12/7.13 JS-8. this指针/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="###7.13 JS-8. this指针  this就是js中的当前行为主体 全局中的this是window  函数中的this要看函数执行的时候前面有没有“.”,如果有点 点前面是谁this就是谁。如果没有点 this就是windowPS:如果访问对象的属性 但是这个属性不存在返回undefined获取一个不存在的元素返回的是null定义在哪里没有关系  主要看执行的时候 12345678910">
+<meta property="og:updated_time" content="2017-09-12T06:56:01.607Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="###7.13 JS-8. this指针  this就是js中的当前行为主体 全局中的this是window  函数中的this要看函数执行的时候前面有没有“.”,如果有点 点前面是谁this就是谁。如果没有点 this就是windowPS:如果访问对象的属性 但是这个属性不存在返回undefined获取一个不存在的元素返回的是null定义在哪里没有关系  主要看执行的时候 12345678910">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://sin32.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-7.13 JS-8. this指针" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/12/7.13 JS-8. this指针/" class="article-date">
+  <time datetime="2017-09-12T06:56:01.463Z" itemprop="datePublished">2017-09-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>###7.13 JS-8. this指针</p>
+<ol>
+<li>this就是js中的当前行为主体 全局中的this是window </li>
+<li><p>函数中的this要看函数执行的时候前面有没有“.”,如果有点 点前面是谁this就是谁。如果没有点 this就是window<br>PS:如果访问对象的属性 但是这个属性不存在返回undefined<br>获取一个不存在的元素返回的是null<br>定义在哪里没有关系  主要看执行的时候</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"> function  fn()&#123;</div><div class="line">       console.log(this); // obj</div><div class="line">&#125;</div><div class="line"></div><div class="line">var obj=&#123;fn:fn,name:&apos;that&apos;&#125;;</div><div class="line">    function f()&#123;</div><div class="line">      console.log(this)   //window</div><div class="line">     obj.fn()</div><div class="line">    &#125;</div><div class="line">函数中的this和函数在哪执行和在哪里定义都没有任何关系</div></pre></td></tr></table></figure>
+</li>
+<li><p>自执行函数里面的this永远是window </p>
+</li>
+<li><p>给元素绑定事件 事件触发的时候 里面的this就是当前绑定事件的元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">btn.onclick = function()&#123;</div><div class="line">    console.log(this);   //btn</div><div class="line">    fn()  //虽然在 事件里执行  但是要看前面有没有点</div><div class="line">&#125;</div><div class="line">function fn()&#123;</div><div class="line">    console.log(this)  //window</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>定时器里面的this也是window</p>
+</li>
+<li>类中的this 指的是当前实例<blockquote>
+<p>改变this的方法：call  apply  bind</p>
+</blockquote>
+</li>
+</ol>
+<p>练习<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">function fn1()&#123;</div><div class="line">	conslo.log(this); // ary</div><div class="line">	&#125;</div><div class="line">	function fn2()&#123;</div><div class="line">	conslo.log(this);</div><div class="line">	&#125;</div><div class="line">		</div><div class="line">var ary = [fn1,fn2]</div><div class="line">ary[1]()   </div><div class="line"></div><div class="line">// ary[1] = ary.1\\</div><div class="line"></div><div class="line"></div><div class="line">   var num = 5; // 6 -&gt; 7</div><div class="line">   var obj = &#123;</div><div class="line">       num : 4, // 5</div><div class="line">       fn : (function (num)&#123;</div><div class="line">           num++;</div><div class="line">           this.num++; // 自执行函数中this window window.num++ 6</div><div class="line">           var num = 2;   // num = 2 -&gt; 3 -&gt; 4</div><div class="line">           return function ()&#123;</div><div class="line">               num++; // 2++ -&gt; 3++</div><div class="line">               this.num++; // window.num++ 6++ // obj.num++  4++</div><div class="line">               console.log(num); // 3 // 4</div><div class="line">           &#125;</div><div class="line">       &#125;)()</div><div class="line">   &#125;;</div><div class="line">   var fn = obj.fn;</div><div class="line">   fn(); // 3</div><div class="line">   obj.fn(); // 4</div><div class="line">   console.log(this.num,obj.num); // 7 5</div></pre></td></tr></table></figure></p>
+<p>二、单例模式 ：把描述同一个事物（或者同一个对象）放在一个内存空间，起到分组的作用</p>
+<p>即使对象的属性名相同也不会产生冲突<br>“模块化开发”：项目中开发的模块比较多的时候，多人协作，每个人负责一个模块 最终把代码合并到一起的 单例模式中把 flightFn 和 trainFn 称为命名空间其实就是对象<br>高级单例模式：定义一个自运行函数，返回值是一个对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">var flightFn = &#123;</div><div class="line">                title:机票,</div><div class="line">                mess:‘欢迎来到平台买机票’,</div><div class="line">                say:function()&#123;</div><div class="line">                      alert(this.title+this.mess)               </div><div class="line">                    &#125;</div><div class="line">                             &#125;</div><div class="line">flightFn.say();                             </div><div class="line">var trainFn = &#123;</div><div class="line">                title:火车票,</div><div class="line">                mess:‘欢迎来到平台买火车票’,</div><div class="line">                say:function()&#123;</div><div class="line">                      alert(this.title+this.mess)               </div><div class="line">                    &#125;</div><div class="line">     &#125;  </div><div class="line">trainFn.say();</div></pre></td></tr></table></figure>
+<p>三、工厂模式： 把实现一个功能的代码放到一个函数里面 减少冗余的代码—-&gt; 函数封装</p>
+<blockquote>
+<p>高内聚低耦合：减少页面中重复代码 提升代码重复利用率。<br>特点：</p>
+</blockquote>
+<p>四.面向对象</p>
+<blockquote>
+<p>对象：是一个泛指 比如自然界<br>类：对对象的具体细分，比如 植物类 动物类 人类<br>实例：类中某一个具体事物 比如某一个人<br>类的 封装 继承 多态<br>继承： 子类继承父类<br>多态：多种形态（重载和重写）JS中没有重载<br>重写：子类重写父类<br>对象的遍历：for(var key in obj){}<br>对象的<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&gt;函数有三种角色：函数，类，对象</div><div class="line"></div><div class="line">五、构造函数</div><div class="line"></div><div class="line">类本身也是个函数， </div><div class="line">特点：</div><div class="line">&gt;1.一般约定函数名首字母大写 </div><div class="line">&gt;2.不用手动创建对象 用this </div><div class="line">&gt;3.没有return 直接会返回一个对象作为这个类的实例 </div><div class="line">&gt;4 执行的时候要用new</div></pre></td></tr></table></figure></p>
+</blockquote>
+<pre><code>function CreatePerson(name,age){
+// 执行之前，浏览器默认创建一个对象 
+    this.name = name;   // 在类的是this.xxx是个当前实例添加属性
+    this.age = age;  // 给当前实例添加私有属性
+// 默认将这个对象返回    
+}
+var person1 = new CreatePerson(&apos;zhangsan&apos;,10); // 构造函数模式，执行 他的返回值就是这个类的实例
+console.log(person1)
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt; 工厂模式和构造函数模式对比* </div><div class="line">1.工厂模式是普通函数执行 构造函数通过new来执行 默认创建一个对象 将其返回作为这个类的实例 </div><div class="line">2.执行的时候形成一个私有作用域 –&gt; 形参赋值—-&gt;预解释—-&gt;代码 从上至下 </div><div class="line">构造函数模式执行的时候 会默认创建一个对象 默认返回的实例 工厂模式手工创建</div><div class="line">每一个实例都是一个独立的个体 </div><div class="line"></div><div class="line">Object 基类 </div><div class="line">instanceof 用来检测一个实例数否属于这个类</div></pre></td></tr></table></figure>
+<p>person1 instanceof CreatePerson   //turn<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt;Ps : 如果构造函数有return 的是一个引用数据类型 就会把之前的对象覆盖 </div><div class="line">&gt;如果返回的是一个基本数据类型的话 那就没有影响</div></pre></td></tr></table></figure></p>
+<p>function CreatePerson(name,age){<br>        this.name = name;<br>        this.age = age;<br>        return { info : ‘hahaha’}<br>        // return 124    // 基本数据类型就不会有影响<br>    }<br>var person1 = new CreatePerson(‘zhangsan’,10);<br>console.log(person1)    // hahaha</p>
+<p>   var num = 1;   //   –3    –5<br>   var obj = {num : 2};  //   4<br>   obj.fn = (function (num){ //  1<br>       this.num += 2;<br>       num–;   //  0—  -1 – 0–  -1<br>                   return function (n)1    // 2<br>           this.num += 2;<br>           num–;<br>           console.log(n + ++num);   // 1+0<br>       }<br>   })(this.num);<br>   var fn = obj.fn;<br>   fn(1);   // 1<br>   obj.fn(2);   //    2<br>   console.log(num,obj.num);   //  5     4<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">自执行函数只执行一次 </div><div class="line">两次this.num 代表的不一样 第一次是 window 第二次是obj</div></pre></td></tr></table></figure></p>
+<p>var num = 20;   60  240<br>   var obj = {<br>        num: 30,   120<br>       fn: (function (num) {20<br>           this.num <em>= 3;<br>            num += 15; 35<br>           var num = 45;   45  65   85<br>            return function () {<br>                this.num </em>= 4;<br>                num += 20;    65<br>                console.log(num);   65<br>            }<br>        })(num)<br>    };<br>    var fn = obj.fn;<br>    fn();   65<br>    obj.fn(); 85<br>    console.log(window.num, obj.num);   240    120<br>```</p>
+<ol>
+<li>在构造函数中，如果不需要传参，就可以省略小括号<br>var f1 = new Fn;</li>
+<li>类有普通函数的一面，当函数执行的时候， var num 其实只是当前形成的私有作用域中的私有变量而已， 和实例没有任何关系</li>
+<li>检测一个实例是否属于某一个类 instanceof<br>每一个实例都是对象数据类型</li>
+<li><p>检测某一个属性数否属于一个对象 用Iin<br>attr in object 不管是共有的属性还是私有的属性都可以检测</p>
+</li>
+<li><p>hasOwnProperty: 用来检测某一个属性是否是这个对象的私有属性<br>f1.hasOwnProperty(‘getX’)</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://sin32.github.io/2017/09/12/7.13 JS-8. this指针/" data-id="cj7h8zii30000sckc138w6vv0" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/09/12/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/09/12/7.13 JS-8. this指针/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/12/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
