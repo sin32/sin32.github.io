@@ -94,17 +94,17 @@
 
 
 
-<meta name="description" content="在web应用中，多个请求之间共享“用户会话”是非常必要的。但HTTP1.0协议是无状态的。那这时Cookie就出现了。那Cookie又是如何处理的呢？ ####Cookie的处理：  服务端向客户端发送Cookie 客户端的浏览器把Cookie保存 然后在每次请求浏览器都会将Cookie发送到服务端  在HTML文档被发送之前，Web服务器通过传送HTTP 包头中的Set-Cookie 消息把一个">
+<meta name="description" content="在web应用中，多个请求之间共享“用户会话”是非常必要的。但HTTP1.0协议是无状态的。那这时Cookie就出现了。那Cookie又是如何处理的呢？ Cookie的处理： 服务端向客户端发送Cookie 客户端的浏览器把Cookie保存 然后在每次请求浏览器都会将Cookie发送到服务端  在HTML文档被发送之前，Web服务器通过传送HTTP 包头中的Set-Cookie 消息把一个cooki">
 <meta property="og:type" content="article">
 <meta property="og:title" content="cookie&amp;session">
 <meta property="og:url" content="http://sin32.github.io/2017/09/12/cookie_session/index.html">
 <meta property="og:site_name" content="sin32&#39;blog">
-<meta property="og:description" content="在web应用中，多个请求之间共享“用户会话”是非常必要的。但HTTP1.0协议是无状态的。那这时Cookie就出现了。那Cookie又是如何处理的呢？ ####Cookie的处理：  服务端向客户端发送Cookie 客户端的浏览器把Cookie保存 然后在每次请求浏览器都会将Cookie发送到服务端  在HTML文档被发送之前，Web服务器通过传送HTTP 包头中的Set-Cookie 消息把一个">
+<meta property="og:description" content="在web应用中，多个请求之间共享“用户会话”是非常必要的。但HTTP1.0协议是无状态的。那这时Cookie就出现了。那Cookie又是如何处理的呢？ Cookie的处理： 服务端向客户端发送Cookie 客户端的浏览器把Cookie保存 然后在每次请求浏览器都会将Cookie发送到服务端  在HTML文档被发送之前，Web服务器通过传送HTTP 包头中的Set-Cookie 消息把一个cooki">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-12T08:13:34.074Z">
+<meta property="og:updated_time" content="2017-09-13T07:37:15.195Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="cookie&amp;session">
-<meta name="twitter:description" content="在web应用中，多个请求之间共享“用户会话”是非常必要的。但HTTP1.0协议是无状态的。那这时Cookie就出现了。那Cookie又是如何处理的呢？ ####Cookie的处理：  服务端向客户端发送Cookie 客户端的浏览器把Cookie保存 然后在每次请求浏览器都会将Cookie发送到服务端  在HTML文档被发送之前，Web服务器通过传送HTTP 包头中的Set-Cookie 消息把一个">
+<meta name="twitter:description" content="在web应用中，多个请求之间共享“用户会话”是非常必要的。但HTTP1.0协议是无状态的。那这时Cookie就出现了。那Cookie又是如何处理的呢？ Cookie的处理： 服务端向客户端发送Cookie 客户端的浏览器把Cookie保存 然后在每次请求浏览器都会将Cookie发送到服务端  在HTML文档被发送之前，Web服务器通过传送HTTP 包头中的Set-Cookie 消息把一个cooki">
 
 
 
@@ -340,8 +340,7 @@
 
       
         <p>在web应用中，多个请求之间共享“用户会话”是非常必要的。但HTTP1.0协议是无状态的。那这时Cookie就出现了。那Cookie又是如何处理的呢？</p>
-<p>####Cookie的处理：</p>
-<ol>
+<h4 id="Cookie的处理："><a href="#Cookie的处理：" class="headerlink" title="Cookie的处理："></a>Cookie的处理：</h4><ol>
 <li>服务端向客户端发送Cookie</li>
 <li>客户端的浏览器把Cookie保存</li>
 <li>然后在每次请求浏览器都会将Cookie发送到服务端</li>
@@ -349,25 +348,20 @@
 <p>在HTML文档被发送之前，Web服务器通过传送HTTP 包头中的Set-Cookie 消息把一个cookie 发送到用户的浏览器中，如下示例：<br>Set-Cookie: name=value; Path=/; expires=Wednesday, 09-Nov-99 23:12:40 GMT;</p>
 <p>其中比较重要的属性：</p>
 <p>name=value：键值对，可以设置要保存的 Key/Value，注意这里的 name 不能和其他属性项的名字一样<br>Expires： 过期时间（秒），在设置的某个时间点后该 Cookie 就会失效，如 expires=Wednesday, 09-Nov-99 23:12:40 GMT<br>maxAge： 最大失效时间（毫秒），设置在多少后失效<br>secure： 当 secure 值为 true 时，cookie 在 HTTP 中是无效，在 HTTPS 中才有效<br>Path： 表示 cookie 影响到的路，如 path=/。如果路径不能匹配时，浏览器则不发送这个Cookie</p>
-<p>####cookie在express中的使用</p>
-<p>express 在 4.x 版本之后，管理session和cookies等许多模块都不再直接包含在express中， `而是需要单独下载安装相应模块。</p>
+<h4 id="cookie在express中的使用"><a href="#cookie在express中的使用" class="headerlink" title="cookie在express中的使用"></a>cookie在express中的使用</h4><p>express 在 4.x 版本之后，管理session和cookies等许多模块都不再直接包含在express中， `而是需要单独下载安装相应模块。</p>
 <p>cookieParser安装：<br>$ npm install cookie-parser</p>
 <p>通过express命令创建的项目会自动将这个模块安装。</p>
-<p>###session</p>
-<p>什么是session？</p>
+<h3 id="session"><a href="#session" class="headerlink" title="session"></a>session</h3><p>什么是session？</p>
 <p>session是另一种记录客户状态的机制，不同的是Cookie保存在客户端浏览器中，而session保存在服务器上。</p>
 <p>客户端浏览器访问服务器的时候，服务器把客户端信息以某种形式记录在服务器上，这就是session。客户端浏览器再次访问时只需要从该Session中查找该客户的状态就可以了。</p>
 <p>如果说Cookie机制是通过检查客户身上的“通行证”来确定客户身份的话，那么session机制就是通过检查服务器上的“客户明细表”来确认客户身份。</p>
 <p>session相当于程序在服务器上建立的一份客户档案，客户来访的时候只需要查询客户档案表就可以了。</p>
-<p>两者的区别：</p>
-<p>cookie数据存放在客户的浏览器上，session数据放在服务器上。</p>
-<p>cookie不是很安全，别人可以分析存放在本地的COOKIE并进行COOKIE欺骗 考虑到安全应当使用session。</p>
-<p>session会在一定时间内保存在服务器上。当访问增多，会比较占用你服务器的性能 考虑到减轻服务器性能方面，应当使用COOKIE。</p>
-<p>单个cookie保存的数据不能超过4K，很多浏览器都限制一个站点最多保存20个cookie。</p>
-<p>所以建议：将登陆信息等重要信息存放为session、其他信息如果需要保留，可以放在cookie中</p>
-<p>express中的session</p>
+<h4 id="两者的区别："><a href="#两者的区别：" class="headerlink" title="两者的区别："></a>两者的区别：</h4><blockquote>
+<p>cookie数据存放在客户的浏览器上，session数据放在服务器上。<br>cookie不是很安全，别人可以分析存放在本地的COOKIE并进行COOKIE欺骗 考虑到安全应当使用session。<br>session会在一定时间内保存在服务器上。当访问增多，会比较占用你服务器的性能 考虑到减轻服务器性能方面，应当使用COOKIE。<br>单个cookie保存的数据不能超过4K，很多浏览器都限制一个站点最多保存20个cookie。<br>所以建议：将登陆信息等重要信息存放为session、其他信息如果需要保留，可以放在cookie中</p>
+</blockquote>
+<p>####express中的session</p>
 <p>跟cookie一样都需要单独的安装和引用模块， 安装模块：</p>
-<p>$npm install express-session<br>1<br>1<br>这个模块没有默认安装，需要自己手动安装，并引入：<br>var session = require(‘express-session’);<br>这个模块的主要的方法是 session(options)，其中 options 中包含可选参数，主要有：</p>
+<p>$npm install express-session<br>这个模块没有默认安装，需要自己手动安装，并引入：<br>var session = require(‘express-session’);<br>这个模块的主要的方法是 session(options)，其中 options 中包含可选参数，主要有：</p>
 <p>name: 设置 cookie 中，保存 session 的字段名称，默认为 connect.sid 。<br>store: session 的存储方式，默认存放在内存中，也可以使用 redis，mongodb 等。express<br>生态中都有相应模块的支持。<br>secret: 通过设置的 secret 字符串，来计算 hash 值并放在 cookie 中，使产生的 signedCookie<br>防篡改。<br>cookie: 设置存放 session id 的 cookie 的相关选项，默认为 (default: { path: ‘/’,<br>httpOnly: true, secure: false, maxAge: null })<br>genid: 产生一个新的 session_id 时，所使用的函数， 默认使用 uid2 这个 npm 包。<br>rolling: 每个请求都重新设置一个 cookie，默认为 false。<br>resave: 即使 session 没有被修改，也保存 session 值，默认为 true。</p>
 
       
@@ -457,8 +451,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -502,6 +505,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Cookie的处理："><span class="nav-number">1.</span> <span class="nav-text">Cookie的处理：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#cookie在express中的使用"><span class="nav-number">2.</span> <span class="nav-text">cookie在express中的使用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#session"><span class="nav-number"></span> <span class="nav-text">session</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#两者的区别："><span class="nav-number">1.</span> <span class="nav-text">两者的区别：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

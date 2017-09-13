@@ -94,17 +94,17 @@
 
 
 
-<meta name="description" content="this就是js中的当前行为主体 全局中的this是window  函数中的this要看函数执行的时候前面有没有“.”,如果有点 点前面是谁this就是谁。如果没有点 this就是windowPS:如果访问对象的属性 但是这个属性不存在返回undefined获取一个不存在的元素返回的是null定义在哪里没有关系  主要看执行的时候 12345678910 function  fn()&amp;#123;">
+<meta name="description" content="一、this指针 this就是js中的当前行为主体 全局中的this是window  函数中的this要看函数执行的时候前面有没有“.”,如果有点 点前面是谁this就是谁。如果没有点 this就是windowPS:如果访问对象的属性 但是这个属性不存在返回undefined获取一个不存在的元素返回的是null定义在哪里没有关系  主要看执行的时候123456789 function  fn()&amp;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="this指针">
 <meta property="og:url" content="http://sin32.github.io/2017/09/12/7.13 JS-8. this指针/index.html">
 <meta property="og:site_name" content="sin32&#39;blog">
-<meta property="og:description" content="this就是js中的当前行为主体 全局中的this是window  函数中的this要看函数执行的时候前面有没有“.”,如果有点 点前面是谁this就是谁。如果没有点 this就是windowPS:如果访问对象的属性 但是这个属性不存在返回undefined获取一个不存在的元素返回的是null定义在哪里没有关系  主要看执行的时候 12345678910 function  fn()&amp;#123;">
+<meta property="og:description" content="一、this指针 this就是js中的当前行为主体 全局中的this是window  函数中的this要看函数执行的时候前面有没有“.”,如果有点 点前面是谁this就是谁。如果没有点 this就是windowPS:如果访问对象的属性 但是这个属性不存在返回undefined获取一个不存在的元素返回的是null定义在哪里没有关系  主要看执行的时候123456789 function  fn()&amp;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-12T08:13:42.501Z">
+<meta property="og:updated_time" content="2017-09-13T07:40:53.270Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="this指针">
-<meta name="twitter:description" content="this就是js中的当前行为主体 全局中的this是window  函数中的this要看函数执行的时候前面有没有“.”,如果有点 点前面是谁this就是谁。如果没有点 this就是windowPS:如果访问对象的属性 但是这个属性不存在返回undefined获取一个不存在的元素返回的是null定义在哪里没有关系  主要看执行的时候 12345678910 function  fn()&amp;#123;">
+<meta name="twitter:description" content="一、this指针 this就是js中的当前行为主体 全局中的this是window  函数中的this要看函数执行的时候前面有没有“.”,如果有点 点前面是谁this就是谁。如果没有点 this就是windowPS:如果访问对象的属性 但是这个属性不存在返回undefined获取一个不存在的元素返回的是null定义在哪里没有关系  主要看执行的时候123456789 function  fn()&amp;">
 
 
 
@@ -339,13 +339,14 @@
       
 
       
-        <ol>
+        <h4 id="一、this指针"><a href="#一、this指针" class="headerlink" title="一、this指针"></a>一、this指针</h4><ol>
 <li>this就是js中的当前行为主体 全局中的this是window </li>
-<li><p>函数中的this要看函数执行的时候前面有没有“.”,如果有点 点前面是谁this就是谁。如果没有点 this就是window<br>PS:如果访问对象的属性 但是这个属性不存在返回undefined<br>获取一个不存在的元素返回的是null<br>定义在哪里没有关系  主要看执行的时候</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"> function  fn()&#123;</div><div class="line">       console.log(this); // obj</div><div class="line">&#125;</div><div class="line"></div><div class="line">var obj=&#123;fn:fn,name:&apos;that&apos;&#125;;</div><div class="line">    function f()&#123;</div><div class="line">      console.log(this)   //window</div><div class="line">     obj.fn()</div><div class="line">    &#125;</div><div class="line">函数中的this和函数在哪执行和在哪里定义都没有任何关系</div></pre></td></tr></table></figure>
+<li>函数中的this要看函数执行的时候前面有没有“.”,如果有点 点前面是谁this就是谁。如果没有点 this就是window<br>PS:如果访问对象的属性 但是这个属性不存在返回undefined<br>获取一个不存在的元素返回的是null<br>定义在哪里没有关系  主要看执行的时候<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"> function  fn()&#123;</div><div class="line">       console.log(this); // obj</div><div class="line">&#125;</div><div class="line"></div><div class="line">var obj=&#123;fn:fn,name:&apos;that&apos;&#125;;</div><div class="line">function f()&#123;</div><div class="line">    console.log(this)   //window</div><div class="line">    obj.fn()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
-<li><p>自执行函数里面的this永远是window </p>
-</li>
+</ol>
+<p>函数中的this和函数在哪执行和在哪里定义都没有任何关系</p>
+<ol>
+<li>自执行函数里面的this永远是window </li>
 <li><p>给元素绑定事件 事件触发的时候 里面的this就是当前绑定事件的元素</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">btn.onclick = function()&#123;</div><div class="line">    console.log(this);   //btn</div><div class="line">    fn()  //虽然在 事件里执行  但是要看前面有没有点</div><div class="line">&#125;</div><div class="line">function fn()&#123;</div><div class="line">    console.log(this)  //window</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
@@ -356,17 +357,14 @@
 </blockquote>
 </li>
 </ol>
-<p>练习<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">function fn1()&#123;</div><div class="line">	conslo.log(this); // ary</div><div class="line">	&#125;</div><div class="line">	function fn2()&#123;</div><div class="line">	conslo.log(this);</div><div class="line">	&#125;</div><div class="line">		</div><div class="line">var ary = [fn1,fn2]</div><div class="line">ary[1]()   </div><div class="line"></div><div class="line">// ary[1] = ary.1\\</div><div class="line"></div><div class="line"></div><div class="line">   var num = 5; // 6 -&gt; 7</div><div class="line">   var obj = &#123;</div><div class="line">       num : 4, // 5</div><div class="line">       fn : (function (num)&#123;</div><div class="line">           num++;</div><div class="line">           this.num++; // 自执行函数中this window window.num++ 6</div><div class="line">           var num = 2;   // num = 2 -&gt; 3 -&gt; 4</div><div class="line">           return function ()&#123;</div><div class="line">               num++; // 2++ -&gt; 3++</div><div class="line">               this.num++; // window.num++ 6++ // obj.num++  4++</div><div class="line">               console.log(num); // 3 // 4</div><div class="line">           &#125;</div><div class="line">       &#125;)()</div><div class="line">   &#125;;</div><div class="line">   var fn = obj.fn;</div><div class="line">   fn(); // 3</div><div class="line">   obj.fn(); // 4</div><div class="line">   console.log(this.num,obj.num); // 7 5</div></pre></td></tr></table></figure></p>
-<p>二、单例模式 ：把描述同一个事物（或者同一个对象）放在一个内存空间，起到分组的作用</p>
-<p>即使对象的属性名相同也不会产生冲突<br>“模块化开发”：项目中开发的模块比较多的时候，多人协作，每个人负责一个模块 最终把代码合并到一起的 单例模式中把 flightFn 和 trainFn 称为命名空间其实就是对象<br>高级单例模式：定义一个自运行函数，返回值是一个对象。</p>
+<p>#####练习：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">function fn1()&#123;</div><div class="line">	conslo.log(this); // ary</div><div class="line">	&#125;</div><div class="line">	function fn2()&#123;</div><div class="line">	conslo.log(this);</div><div class="line">	&#125;</div><div class="line">		</div><div class="line">var ary = [fn1,fn2]</div><div class="line">ary[1]()   </div><div class="line"></div><div class="line">// ary[1] = ary.1\\</div><div class="line"></div><div class="line"></div><div class="line">   var num = 5; // 6 -&gt; 7</div><div class="line">   var obj = &#123;</div><div class="line">       num : 4, // 5</div><div class="line">       fn : (function (num)&#123;</div><div class="line">           num++;</div><div class="line">           this.num++; // 自执行函数中this window window.num++ 6</div><div class="line">           var num = 2;   // num = 2 -&gt; 3 -&gt; 4</div><div class="line">           return function ()&#123;</div><div class="line">               num++; // 2++ -&gt; 3++</div><div class="line">               this.num++; // window.num++ 6++ // obj.num++  4++</div><div class="line">               console.log(num); // 3 // 4</div><div class="line">           &#125;</div><div class="line">       &#125;)()</div><div class="line">   &#125;;</div><div class="line">   var fn = obj.fn;</div><div class="line">   fn(); // 3</div><div class="line">   obj.fn(); // 4</div><div class="line">   console.log(this.num,obj.num); // 7 5</div></pre></td></tr></table></figure></p>
+<h4 id="二、单例模式-：把描述同一个事物（或者同一个对象）放在一个内存空间，起到分组的作用"><a href="#二、单例模式-：把描述同一个事物（或者同一个对象）放在一个内存空间，起到分组的作用" class="headerlink" title="二、单例模式 ：把描述同一个事物（或者同一个对象）放在一个内存空间，起到分组的作用"></a>二、单例模式 ：把描述同一个事物（或者同一个对象）放在一个内存空间，起到分组的作用</h4><p>即使对象的属性名相同也不会产生冲突<br>“模块化开发”：项目中开发的模块比较多的时候，多人协作，每个人负责一个模块 最终把代码合并到一起的 单例模式中把 flightFn 和 trainFn 称为命名空间其实就是对象<br>高级单例模式：定义一个自运行函数，返回值是一个对象。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">var flightFn = &#123;</div><div class="line">                title:机票,</div><div class="line">                mess:‘欢迎来到平台买机票’,</div><div class="line">                say:function()&#123;</div><div class="line">                      alert(this.title+this.mess)               </div><div class="line">                    &#125;</div><div class="line">                             &#125;</div><div class="line">flightFn.say();                             </div><div class="line">var trainFn = &#123;</div><div class="line">                title:火车票,</div><div class="line">                mess:‘欢迎来到平台买火车票’,</div><div class="line">                say:function()&#123;</div><div class="line">                      alert(this.title+this.mess)               </div><div class="line">                    &#125;</div><div class="line">     &#125;  </div><div class="line">trainFn.say();</div></pre></td></tr></table></figure>
-<p>三、工厂模式： 把实现一个功能的代码放到一个函数里面 减少冗余的代码—-&gt; 函数封装</p>
-<blockquote>
+<h4 id="三、工厂模式：-把实现一个功能的代码放到一个函数里面-减少冗余的代码—-gt-函数封装"><a href="#三、工厂模式：-把实现一个功能的代码放到一个函数里面-减少冗余的代码—-gt-函数封装" class="headerlink" title="三、工厂模式： 把实现一个功能的代码放到一个函数里面 减少冗余的代码—-&gt; 函数封装"></a>三、工厂模式： 把实现一个功能的代码放到一个函数里面 减少冗余的代码—-&gt; 函数封装</h4><blockquote>
 <p>高内聚低耦合：减少页面中重复代码 提升代码重复利用率。<br>特点：</p>
 </blockquote>
-<p>四.面向对象</p>
-<blockquote>
-<p>对象：是一个泛指 比如自然界<br>类：对对象的具体细分，比如 植物类 动物类 人类<br>实例：类中某一个具体事物 比如某一个人<br>类的 封装 继承 多态<br>继承： 子类继承父类<br>多态：多种形态（重载和重写）JS中没有重载<br>重写：子类重写父类<br>对象的遍历：for(var key in obj){}<br>对象的<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&gt;函数有三种角色：函数，类，对象</div><div class="line"></div><div class="line">五、构造函数</div><div class="line"></div><div class="line">类本身也是个函数， </div><div class="line">特点：</div><div class="line">&gt;1.一般约定函数名首字母大写 </div><div class="line">&gt;2.不用手动创建对象 用this </div><div class="line">&gt;3.没有return 直接会返回一个对象作为这个类的实例 </div><div class="line">&gt;4 执行的时候要用new</div></pre></td></tr></table></figure></p>
+<h4 id="四、面向对象"><a href="#四、面向对象" class="headerlink" title="四、面向对象"></a>四、面向对象</h4><blockquote>
+<p>对象：是一个泛指 比如自然界<br>类：对对象的具体细分，比如 植物类 动物类 人类<br>实例：类中某一个具体事物 比如某一个人<br>类的 封装 继承 多态<br>继承： 子类继承父类<br>多态：多种形态（重载和重写）JS中没有重载<br>重写：子类重写父类<br>对象的遍历：for(var key in obj){}<br>对象的<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&gt;函数有三种角色：函数，类，对象</div><div class="line"></div><div class="line">#### 五、构造函数</div><div class="line"></div><div class="line">类本身也是个函数， </div><div class="line">特点：</div><div class="line">&gt;1.一般约定函数名首字母大写 </div><div class="line">&gt;2.不用手动创建对象 用this </div><div class="line">&gt;3.没有return 直接会返回一个对象作为这个类的实例 </div><div class="line">&gt;4 执行的时候要用new</div></pre></td></tr></table></figure></p>
 </blockquote>
 <pre><code>function CreatePerson(name,age){
 // 执行之前，浏览器默认创建一个对象 
@@ -478,8 +476,17 @@ console.log(person1)
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -523,6 +530,22 @@ console.log(person1)
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、this指针"><span class="nav-number">1.</span> <span class="nav-text">一、this指针</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、单例模式-：把描述同一个事物（或者同一个对象）放在一个内存空间，起到分组的作用"><span class="nav-number">2.</span> <span class="nav-text">二、单例模式 ：把描述同一个事物（或者同一个对象）放在一个内存空间，起到分组的作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、工厂模式：-把实现一个功能的代码放到一个函数里面-减少冗余的代码—-gt-函数封装"><span class="nav-number">3.</span> <span class="nav-text">三、工厂模式： 把实现一个功能的代码放到一个函数里面 减少冗余的代码—-> 函数封装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四、面向对象"><span class="nav-number">4.</span> <span class="nav-text">四、面向对象</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
