@@ -101,7 +101,7 @@
 <meta property="og:site_name" content="sin32&#39;blog">
 <meta property="og:description" content="不再是简简单单的使用HTML+CSS+JavaScript这些简单的技术构建网页应用程序了 我们要提高效率，就必须减少重复的工作 使用less之类预处理的CSS 提供开发阶段的便利，开发阶段更快捷 现在的开发行业优质的开发人员是不应该将精力放在这些重复性质的工作上 Gulp就是一种可以自动化完成我们开发过程中大量的重复工作 预处理语言的编译 js css html 压缩混淆 图片体积优化   除">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-13T07:44:52.655Z">
+<meta property="og:updated_time" content="2017-09-13T08:13:43.073Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="gulp bower yoman">
 <meta name="twitter:description" content="不再是简简单单的使用HTML+CSS+JavaScript这些简单的技术构建网页应用程序了 我们要提高效率，就必须减少重复的工作 使用less之类预处理的CSS 提供开发阶段的便利，开发阶段更快捷 现在的开发行业优质的开发人员是不应该将精力放在这些重复性质的工作上 Gulp就是一种可以自动化完成我们开发过程中大量的重复工作 预处理语言的编译 js css html 压缩混淆 图片体积优化   除">
@@ -216,16 +216,6 @@
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
           </a>
         </li>
       
@@ -387,6 +377,7 @@
 </li>
 <li>除gulp之外还有一些类似的自动化工具，比如grunt</li>
 </ul>
+<a id="more"></a>
 <h4 id="1-gulp的使用"><a href="#1-gulp的使用" class="headerlink" title="1.gulp的使用"></a>1.gulp的使用</h4><p>1&gt;首先使用gulp 必须全局安装gulp<br>        npm install gulp -g<br>2&gt;测试自己电脑上已安装了gulp<br>    gulp —version<br>3&gt;在自己项目的根目录下 安装 开发者依赖<br>   npm install gulp —save-dev<br>4&gt;然后在根目录下创建一个名为gulpfile.js的文件</p>
 <p>gulpfile.js文件代码如下：<br>var gulp = require(‘gulp’);</p>
 <p>//默认任务 第一个参数是任务的名字，第二个参数是要执行的任务<br>gulp.task(‘default’,function(){<br>    console.log(‘我是一个默认任务’)<br>})</p>

@@ -94,17 +94,17 @@
 
 
 
-<meta name="description" content="一、this指针 this就是js中的当前行为主体 全局中的this是window  函数中的this要看函数执行的时候前面有没有“.”,如果有点 点前面是谁this就是谁。如果没有点 this就是windowPS:如果访问对象的属性 但是这个属性不存在返回undefined获取一个不存在的元素返回的是null定义在哪里没有关系  主要看执行的时候123456789 function  fn()&amp;">
+<meta name="description" content="一、this指针 this就是js中的当前行为主体 全局中的this是window  函数中的this要看函数执行的时候前面有没有“.”,如果有点 点前面是谁this就是谁。如果没有点 this就是windowPS:如果访问对象的属性 但是这个属性不存在返回undefined">
 <meta property="og:type" content="article">
 <meta property="og:title" content="this指针">
 <meta property="og:url" content="http://sin32.github.io/2017/09/12/7.13 JS-8. this指针/index.html">
 <meta property="og:site_name" content="sin32&#39;blog">
-<meta property="og:description" content="一、this指针 this就是js中的当前行为主体 全局中的this是window  函数中的this要看函数执行的时候前面有没有“.”,如果有点 点前面是谁this就是谁。如果没有点 this就是windowPS:如果访问对象的属性 但是这个属性不存在返回undefined获取一个不存在的元素返回的是null定义在哪里没有关系  主要看执行的时候123456789 function  fn()&amp;">
+<meta property="og:description" content="一、this指针 this就是js中的当前行为主体 全局中的this是window  函数中的this要看函数执行的时候前面有没有“.”,如果有点 点前面是谁this就是谁。如果没有点 this就是windowPS:如果访问对象的属性 但是这个属性不存在返回undefined">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-13T07:48:24.567Z">
+<meta property="og:updated_time" content="2017-09-13T08:13:14.935Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="this指针">
-<meta name="twitter:description" content="一、this指针 this就是js中的当前行为主体 全局中的this是window  函数中的this要看函数执行的时候前面有没有“.”,如果有点 点前面是谁this就是谁。如果没有点 this就是windowPS:如果访问对象的属性 但是这个属性不存在返回undefined获取一个不存在的元素返回的是null定义在哪里没有关系  主要看执行的时候123456789 function  fn()&amp;">
+<meta name="twitter:description" content="一、this指针 this就是js中的当前行为主体 全局中的this是window  函数中的this要看函数执行的时候前面有没有“.”,如果有点 点前面是谁this就是谁。如果没有点 this就是windowPS:如果访问对象的属性 但是这个属性不存在返回undefined">
 
 
 
@@ -216,16 +216,6 @@
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
           </a>
         </li>
       
@@ -375,7 +365,8 @@
       
         <h4 id="一、this指针"><a href="#一、this指针" class="headerlink" title="一、this指针"></a>一、this指针</h4><ol>
 <li>this就是js中的当前行为主体 全局中的this是window </li>
-<li>函数中的this要看函数执行的时候前面有没有“.”,如果有点 点前面是谁this就是谁。如果没有点 this就是window<br>PS:如果访问对象的属性 但是这个属性不存在返回undefined<br>获取一个不存在的元素返回的是null<br>定义在哪里没有关系  主要看执行的时候<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"> function  fn()&#123;</div><div class="line">       console.log(this); // obj</div><div class="line">&#125;</div><div class="line"></div><div class="line">var obj=&#123;fn:fn,name:&apos;that&apos;&#125;;</div><div class="line">function f()&#123;</div><div class="line">    console.log(this)   //window</div><div class="line">    obj.fn()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<li>函数中的this要看函数执行的时候前面有没有“.”,如果有点 点前面是谁this就是谁。如果没有点 this就是window<br>PS:如果访问对象的属性 但是这个属性不存在返回undefined <a id="more"></a>
+获取一个不存在的元素返回的是null<br>定义在哪里没有关系  主要看执行的时候<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"> function  fn()&#123;</div><div class="line">       console.log(this); // obj</div><div class="line">&#125;</div><div class="line"></div><div class="line">var obj=&#123;fn:fn,name:&apos;that&apos;&#125;;</div><div class="line">function f()&#123;</div><div class="line">    console.log(this)   //window</div><div class="line">    obj.fn()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>函数中的this和函数在哪执行和在哪里定义都没有任何关系</p>
